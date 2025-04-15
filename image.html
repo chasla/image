@@ -191,16 +191,16 @@
     }
     
     .btn-primary {
-      background-color: #ff0000;
+      background-color: #b40e0e;
       color: white;
     }
     
     .btn-primary:hover {
-      background-color: #e60000;
+      background-color: #8f0b0b;
     }
     
     .btn-primary:disabled {
-      background-color: #ff9999;
+      background-color: #e08f8f;
       cursor: not-allowed;
     }
     
@@ -288,22 +288,6 @@
       
       <div class="form-group">
         <label class="form-label">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; margin-right: 0.25rem;"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
-          公司Logo (左上角)
-        </label>
-        <div class="upload-area" id="logoUploadArea">
-          <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>
-          <p class="upload-text"><span>点击上传</span> 或拖放文件</p>
-          <p class="upload-hint">PNG、JPG或WEBP</p>
-          <input type="file" id="logoUpload" accept="image/*" style="display: none;">
-        </div>
-        <div class="image-preview" id="logoPreview" style="display: none;">
-          <img id="previewLogoImg" src="" alt="Logo预览">
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; margin-right: 0.25rem;"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
           网站 URL
         </label>
@@ -315,7 +299,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; margin-right: 0.25rem;"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
           公司名称（侧边文字）
         </label>
-        <input type="text" class="form-control" id="companyName" value="COMPANY NAME">
+        <input type="text" class="form-control" id="companyName" value="VIOX ELECTRIC">
       </div>
       
       <div class="form-group">
@@ -331,12 +315,12 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; margin-right: 0.25rem;"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
           联系信息
         </label>
-        <input type="text" class="form-control" id="contactInfo" value="whatsapp:+86 18066396588">
+        <input type="text" class="form-control" id="contactInfo" value="sales@viox.com">
       </div>
       
       <div class="form-group">
         <label class="form-label">边框颜色</label>
-        <input type="color" class="form-control" id="borderColor" value="#FF0000" style="height: 2.5rem;">
+        <input type="color" class="form-control" id="borderColor" value="#B40E0E" style="height: 2.5rem;">
       </div>
       
       <div class="form-group">
@@ -372,222 +356,178 @@
   </footer>
   
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // 获取DOM元素
-      const uploadArea = document.getElementById('uploadArea');
-      const imageUpload = document.getElementById('imageUpload');
-      const imagePreview = document.getElementById('imagePreview');
-      const previewImg = document.getElementById('previewImg');
-      const logoUploadArea = document.getElementById('logoUploadArea');
-      const logoUpload = document.getElementById('logoUpload');
-      const logoPreview = document.getElementById('logoPreview');
-      const previewLogoImg = document.getElementById('previewLogoImg');
-      const websiteUrlInput = document.getElementById('websiteUrl');
-      const productNameInput = document.getElementById('productName');
-      const companyNameInput = document.getElementById('companyName');
-      const contactInfoInput = document.getElementById('contactInfo');
-      const borderColorInput = document.getElementById('borderColor');
-      const textColorInput = document.getElementById('textColor');
-      const generateBtn = document.getElementById('generateBtn');
-      const previewCanvas = document.getElementById('previewCanvas');
-      const canvasPlaceholder = document.getElementById('canvasPlaceholder');
-      const placeholderText = document.getElementById('placeholderText');
-      const downloadBtn = document.getElementById('downloadBtn');
+    // 获取DOM元素
+    const uploadArea = document.getElementById('uploadArea');
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    const websiteUrlInput = document.getElementById('websiteUrl');
+    const productNameInput = document.getElementById('productName');
+    const companyNameInput = document.getElementById('companyName');
+    const contactInfoInput = document.getElementById('contactInfo');
+    const borderColorInput = document.getElementById('borderColor');
+    const textColorInput = document.getElementById('textColor');
+    const generateBtn = document.getElementById('generateBtn');
+    const previewCanvas = document.getElementById('previewCanvas');
+    const canvasPlaceholder = document.getElementById('canvasPlaceholder');
+    const placeholderText = document.getElementById('placeholderText');
+    const downloadBtn = document.getElementById('downloadBtn');
+    
+    let productImage = null;
+    let generatedImage = false;
+    
+    // 上传区域点击事件
+    uploadArea.addEventListener('click', () => {
+      imageUpload.click();
+    });
+    
+    // 处理拖放
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.style.backgroundColor = '#f3f4f6';
+    });
+    
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.style.backgroundColor = '#f9fafb';
+    });
+    
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.style.backgroundColor = '#f9fafb';
       
-      let productImage = null;
-      let logoImage = null;
-      let generatedImage = false;
-      
-      // 设置默认边框颜色为VIOX红色
-      borderColorInput.value = "#ff0000";
-      
-      // 产品图片 - 上传区域点击事件
-      uploadArea.addEventListener('click', function() {
-        imageUpload.click();
-      });
-      
-      // 产品图片 - 处理拖放
-      uploadArea.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        uploadArea.style.backgroundColor = '#f3f4f6';
-      });
-      
-      uploadArea.addEventListener('dragleave', function() {
-        uploadArea.style.backgroundColor = '#f9fafb';
-      });
-      
-      uploadArea.addEventListener('drop', function(e) {
-        e.preventDefault();
-        uploadArea.style.backgroundColor = '#f9fafb';
-        
-        if (e.dataTransfer.files.length) {
-          handleImageUpload(e.dataTransfer.files[0]);
-        }
-      });
-      
-      // 产品图片 - 文件上传处理
-      imageUpload.addEventListener('change', function(e) {
-        if (e.target.files.length) {
-          handleImageUpload(e.target.files[0]);
-        }
-      });
-      
-      function handleImageUpload(file) {
-        if (file.type.startsWith('image/')) {
-          const reader = new FileReader();
-          
-          reader.onload = function(e) {
-            productImage = e.target.result;
-            previewImg.src = productImage;
-            imagePreview.style.display = 'flex';
-            generateBtn.disabled = false;
-            generatedImage = false;
-            placeholderText.textContent = '点击"生成图片"预览';
-          };
-          
-          reader.readAsDataURL(file);
-        }
+      if (e.dataTransfer.files.length) {
+        handleImageUpload(e.dataTransfer.files[0]);
       }
-      
-      // Logo - 上传区域点击事件
-      logoUploadArea.addEventListener('click', function() {
-        logoUpload.click();
-      });
-      
-      // Logo - 处理拖放
-      logoUploadArea.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        logoUploadArea.style.backgroundColor = '#f3f4f6';
-      });
-      
-      logoUploadArea.addEventListener('dragleave', function() {
-        logoUploadArea.style.backgroundColor = '#f9fafb';
-      });
-      
-      logoUploadArea.addEventListener('drop', function(e) {
-        e.preventDefault();
-        logoUploadArea.style.backgroundColor = '#f9fafb';
-        
-        if (e.dataTransfer.files.length) {
-          handleLogoUpload(e.dataTransfer.files[0]);
-        }
-      });
-      
-      // Logo - 文件上传处理
-      logoUpload.addEventListener('change', function(e) {
-        if (e.target.files.length) {
-          handleLogoUpload(e.target.files[0]);
-        }
-      });
-      
-      function handleLogoUpload(file) {
-        if (file.type.startsWith('image/')) {
-          const reader = new FileReader();
-          
-          reader.onload = function(e) {
-            logoImage = e.target.result;
-            previewLogoImg.src = logoImage;
-            logoPreview.style.display = 'flex';
-          };
-          
-          reader.readAsDataURL(file);
-        }
+    });
+    
+    // 文件上传处理
+    imageUpload.addEventListener('change', (e) => {
+      if (e.target.files.length) {
+        handleImageUpload(e.target.files[0]);
       }
-      
-      // 生成图片
-      generateBtn.addEventListener('click', generateImage);
-      
-      function generateImage() {
-        if (!productImage) return;
+    });
+    
+    function handleImageUpload(file) {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
         
-        const ctx = previewCanvas.getContext('2d');
-        
-        // 设置画布尺寸
-        previewCanvas.width = 900;
-        previewCanvas.height = 1000;
-        
-        // 绘制背景
-        ctx.fillStyle = '#4a4a4a';
-        ctx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
-        
-        // 绘制边框
-        ctx.strokeStyle = borderColorInput.value;
-        ctx.lineWidth = 20;
-        ctx.strokeRect(30, 30, previewCanvas.width - 60, previewCanvas.height - 60);
-        
-        // 加载并绘制产品图片
-        const img = new Image();
-        img.onload = function() {
-          // 计算维持宽高比的尺寸
-          const maxWidth = previewCanvas.width - 140;
-          const maxHeight = previewCanvas.height - 300;
-          
-          let width = img.width;
-          let height = img.height;
-          
-          if (width > maxWidth) {
-            height = (maxWidth / width) * height;
-            width = maxWidth;
-          }
-          
-          if (height > maxHeight) {
-            width = (maxHeight / height) * width;
-            height = maxHeight;
-          }
-          
-          // 居中图片
-          const x = (previewCanvas.width - width) / 2;
-          const y = 120;
-          
-          // 绘制图片
-          ctx.drawImage(img, x, y, width, height);
-          
-          // 如果有Logo，添加到左上角
-          if (logoImage) {
-            const logo = new Image();
-            logo.onload = function() {
-              // 计算logo的尺寸，最大宽度为180px
-              const maxLogoWidth = 180;
-              let logoWidth = logo.width;
-              let logoHeight = logo.height;
-              
-              if (logoWidth > maxLogoWidth) {
-                logoHeight = (maxLogoWidth / logoWidth) * logoHeight;
-                logoWidth = maxLogoWidth;
-              }
-              
-              // 绘制logo，位于左上角内侧
-              ctx.drawImage(logo, 60, 60, logoWidth, logoHeight);
-              
-              // 继续其他绘制...
-              completeImageGeneration();
-            };
-            logo.src = logoImage;
-          } else {
-            // 如果没有logo，直接继续其他绘制
-            completeImageGeneration();
-          }
+        reader.onload = (e) => {
+          productImage = e.target.result;
+          previewImg.src = productImage;
+          imagePreview.style.display = 'flex';
+          generateBtn.disabled = false;
+          generatedImage = false;
+          placeholderText.textContent = '点击"生成图片"预览';
         };
-        img.src = productImage;
         
-        function completeImageGeneration() {
-          // 添加侧边公司名称
-          ctx.save();
-          ctx.translate(70, previewCanvas.height / 2);
-          ctx.rotate(-Math.PI / 2);
-          ctx.font = 'bold 36px Arial';
-          ctx.fillStyle = textColorInput.value;
-          ctx.textAlign = 'center';
-          ctx.fillText(companyNameInput.value, 0, 0);
-          ctx.restore();
-          
-          // 添加底部产品名称
-          ctx.fillStyle = borderColorInput.value;
-          ctx.fillRect(30, previewCanvas.height - 160, previewCanvas.width - 60, 100);
-          
-          ctx.font = 'bold 48px Arial';
-          ctx.fillStyle = textColorInput.value;
-          ctx.textAlign = 'center';
-          ctx.fillText(productNameInput.value, previewCanvas.width / 2, previewCanvas.height - 100);
-          
-          // 添加
+        reader.readAsDataURL(file);
+      }
+    }
+    
+    // 生成图片
+    generateBtn.addEventListener('click', generateImage);
+    
+    function generateImage() {
+      if (!productImage) return;
+      
+      const ctx = previewCanvas.getContext('2d');
+      
+      // 设置画布尺寸
+      previewCanvas.width = 900;
+      previewCanvas.height = 1000;
+      
+      // 绘制背景
+      ctx.fillStyle = '#4a4a4a';
+      ctx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+      
+      // 绘制边框
+      ctx.strokeStyle = borderColorInput.value;
+      ctx.lineWidth = 20;
+      ctx.strokeRect(30, 30, previewCanvas.width - 60, previewCanvas.height - 60);
+      
+      // 加载并绘制产品图片
+      const img = new Image();
+      img.onload = () => {
+        // 计算维持宽高比的尺寸
+        const maxWidth = previewCanvas.width - 140;
+        const maxHeight = previewCanvas.height - 300;
+        
+        let width = img.width;
+        let height = img.height;
+        
+        if (width > maxWidth) {
+          height = (maxWidth / width) * height;
+          width = maxWidth;
+        }
+        
+        if (height > maxHeight) {
+          width = (maxHeight / height) * width;
+          height = maxHeight;
+        }
+        
+        // 居中图片
+        const x = (previewCanvas.width - width) / 2;
+        const y = 120;
+        
+        // 绘制图片
+        ctx.drawImage(img, x, y, width, height);
+        
+        // 添加侧边公司名称
+        ctx.save();
+        ctx.translate(70, previewCanvas.height / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.font = 'bold 36px Arial';
+        ctx.fillStyle = textColorInput.value;
+        ctx.textAlign = 'center';
+        ctx.fillText(companyNameInput.value, 0, 0);
+        ctx.restore();
+        
+        // 添加底部产品名称
+        ctx.fillStyle = borderColorInput.value;
+        ctx.fillRect(30, previewCanvas.height - 160, previewCanvas.width - 60, 100);
+        
+        ctx.font = 'bold 48px Arial';
+        ctx.fillStyle = textColorInput.value;
+        ctx.textAlign = 'center';
+        ctx.fillText(productNameInput.value, previewCanvas.width / 2, previewCanvas.height - 100);
+        
+        // 添加联系信息框
+        ctx.fillStyle = borderColorInput.value;
+        ctx.fillRect(previewCanvas.width - 350, previewCanvas.height - 240, 320, 60);
+        
+        ctx.font = 'bold 24px Arial';
+        ctx.fillStyle = textColorInput.value;
+        ctx.textAlign = 'center';
+        ctx.fillText(contactInfoInput.value, previewCanvas.width - 190, previewCanvas.height - 205);
+        
+        // 添加顶部网站URL
+        ctx.font = 'bold 24px Arial';
+        ctx.fillStyle = textColorInput.value;
+        ctx.textAlign = 'right';
+        ctx.fillText(websiteUrlInput.value, previewCanvas.width - 60, 70);
+        
+        // 显示下载按钮并隐藏占位符
+        canvasPlaceholder.style.display = 'none';
+        downloadBtn.style.display = 'flex';
+        generatedImage = true;
+      };
+      
+      img.src = productImage;
+    }
+    
+    // 下载图片
+    downloadBtn.addEventListener('click', downloadImage);
+    
+    function downloadImage() {
+      if (!generatedImage) return;
+      
+      const dataURL = previewCanvas.toDataURL('image/png');
+      
+      const link = document.createElement('a');
+      link.download = `${productNameInput.value.toLowerCase().replace(/\s+/g, '-')}.png`;
+      link.href = dataURL;
+      link.click();
+    }
+  </script>
+</body>
+</html>
